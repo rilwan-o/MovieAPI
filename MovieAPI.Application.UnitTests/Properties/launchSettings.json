@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "MovieAPI.Application.UnitTests": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
