@@ -39,10 +39,11 @@ namespace MovieAPI.Persistence
                     List<Movie> excelData = new List<Movie>();
                     try
                     {
-                        excelData = CsvFileReader.ReadCsvData("./mymoviedb.csv");
-                        // Seed the database
                         if (!dbContext.Movies.Any())
                         {
+                            var filePath = ConfigurationHelper.Configuration["movieData"];
+                            excelData = CsvFileReader.ReadCsvData(filePath);
+                            // Seed the database                     
                             foreach (var data in excelData)
                             {
                                 dbContext.Movies.Add(data);

@@ -21,7 +21,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MovieAPI.Application\MovieAPI.Application.csproj" />
-    <ProjectReference Include="..\MovieAPI.Infrastructure\MovieAPI.Infrastructure.csproj" />
     <ProjectReference Include="..\MovieAPI.Persistence\MovieAPI.Persistence.csproj" />
   </ItemGroup>
 

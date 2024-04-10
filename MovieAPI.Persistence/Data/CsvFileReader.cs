@@ -7,13 +7,13 @@ namespace MovieAPI.Persistence.Data
 {
     public class CsvFileReader
     {
-        public static List<Movie> ReadCsvData(string filePath)
+        public static List<Movie> ReadCsvData(string filepath)
         {
             var config = new CsvConfiguration(CultureInfo.InvariantCulture)
             {
                 Delimiter = ",",
             };
-            using (var reader = new StreamReader(filePath))
+            using (var reader = new StreamReader(GetFilePath(filepath)))
             using (var csv = new CsvReader(reader, config))
             {
                 csv.Read();
@@ -48,7 +48,14 @@ namespace MovieAPI.Persistence.Data
 
                 }
                 return movies;
-            }
+            }          
+        }
+
+        private static string GetFilePath(string filePath)
+        {
+            string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, filePath);
+
+            return fullPath;
         }
     }
 }
