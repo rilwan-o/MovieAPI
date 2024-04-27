@@ -19,10 +19,12 @@ namespace MovieAPI.Persistence.Repositories
             int page = 1, 
             int pageSize = 10)
         {
+            // provides better performance and query optimization capabilities through deferred execution. No need for keeping data in memory
             var query = _dbContext.Movies.AsQueryable();
 
             if (!string.IsNullOrEmpty(title))
             {
+                //DRY
                 query = SearchByTitle(title, query);
             }
             
