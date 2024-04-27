@@ -10,7 +10,7 @@ namespace MovieAPI.Application.Contracts.Services
 {
     public class MovieService : IMovieService
     {
-        public readonly IMovieRepository _movieRepository;
+        private readonly IMovieRepository _movieRepository;
         private readonly IMapper _mapper;
         public MovieService(IMovieRepository movieRepository, IMapper mapper)
         {
